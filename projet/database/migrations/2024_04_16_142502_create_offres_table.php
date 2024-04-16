@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('offres', function (Blueprint $table) {
             $table->id();
+            $table->text('message');
+            $table->decimal('prix');
+            $table->boolean('confirmation')->default(0);
             $table->timestamps();
         });
     }

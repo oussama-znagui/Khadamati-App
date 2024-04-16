@@ -11,12 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->text('slug');
+            $table->string('prenom');
+            $table->string('nom');
+            $table->enum('sexe', ['Homme', 'Femme']);
+            $table->string('adresse');
             $table->string('email')->unique();
+            $table->string('tel');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('ville_id');
+            $table->foreign('ville_id')->references('id')->on('villes');
+            $table->enum('role', ['Freelancer', 'Client']);
             $table->rememberToken();
             $table->timestamps();
         });
