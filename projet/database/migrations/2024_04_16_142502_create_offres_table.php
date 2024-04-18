@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('prix');
             $table->boolean('confirmation')->default(0);
             $table->foreignId('bricole_id')->constrained();
+            $table->foreignId('freelancer_id')->constrained();
             $table->timestamps();
         });
     }

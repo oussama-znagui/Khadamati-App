@@ -22,8 +22,8 @@ class BricoleController extends Controller
      */
     public function index()
     {
-       $bricoles = $this->repository->index();
-        
+        $bricoles = $this->repository->index();
+
         return view(
             'Client.history',
             [
@@ -55,7 +55,6 @@ class BricoleController extends Controller
     {
         $bricoleDTO = bricoleDTO::fromRequest($request);
         $bricole = $this->repository->store($bricoleDTO);
-     
     }
 
     /**
@@ -63,7 +62,10 @@ class BricoleController extends Controller
      */
     public function show(Bricole $bricole)
     {
-        return view('Client.bricole');
+        $bricole = $this->repository->show($bricole);
+        return view('Client.bricole', [
+            'bricole' => $bricole,
+        ]);
     }
 
     /**

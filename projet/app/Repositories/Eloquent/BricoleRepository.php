@@ -29,9 +29,9 @@ class BricoleRepository extends BaseRepository implements BricoleRepositoryInter
     {
         $now = Carbon::now()->format('d-m-Y');
         // dd($now);
-
-        $bricoles = Bricole::All();
-
+       
+        $bricoles = Bricole::where('client_id', Auth::user()->clients->first()->id)->get();
+      
         foreach ($bricoles as $bricole) {
 
             $timeAgo = $bricole->created_at->diffForHumans();
@@ -48,6 +48,11 @@ class BricoleRepository extends BaseRepository implements BricoleRepositoryInter
 
 
         return $bricoles;
+    }
+
+    public function show(Bricole $bricole)
+    {
+        return Bricole::find($bricole->id);
     }
     public function store(bricoleDTO $data)
     {

@@ -40,4 +40,9 @@ class Bricole extends Model
     // {
     //     return $this->id . ' ' . $this->title . ' ' . $this->created_at;
     // }
+
+    public function profession()
+    {
+        return $this->belongsTo(Profession::class);
+    }
 }

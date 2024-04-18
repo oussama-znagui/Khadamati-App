@@ -11,4 +11,8 @@ class Profession extends Model
     protected $fillable = [
         'profession',
     ];
+    public function bricoles()
+    {
+        return $this->HasMany(Bricole::class);
+    }
 }
