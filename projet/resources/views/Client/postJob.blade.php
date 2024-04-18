@@ -6,14 +6,18 @@
 </x-clientBar>
 
 <div class="p-4 sm:ml-32">
-    <div class="flex justify-between items-center mb-4">
+   <div class="flex justify-between items-center mb-4">
       <div class="flex justify-between lg:justify-center items-center gap-4">
           <div class="w-16 h-16 bg-[url('/./assets/img/image.webp')] bg-cover	bg-no-repeat	bg-center	 rounded-full"></div>
-        <h1 class="font-bold text-xl md:text-2xl ">Oussama znagui</h1>
+        <h1 class="font-bold text-xl md:text-2xl ">{{ Auth()->User()->prenom . " " .  Auth()->User()->nom}}</h1>
       </div>
        <div class="flex justify-center items-center gap-4">
-            <p class="hidden sm:block  text-gray-800 font-bold">depuis 25/01/2022</p>
-            <button type="button" class="opacity-80 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Logout</button>
+            <p class="hidden sm:block  text-gray-800 font-bold">depuis {{Auth()->User()->created_at }}</p>
+            <form action="/logout" method="post">
+            @csrf
+             <button type="submit" class="opacity-80 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Logout</button>
+            </form>
+           
 
         </div>
       
@@ -26,12 +30,21 @@
       
         
          <div class=" rounded-2xl bg-gray-200   ">
-            <div class="rounded-2xl bg-gradient-to-br from-teal-400 to-sky-700 p-2 ">
+            <div class="rounded-2xl bg-gradient-to-br from-teal-400 to-sky-700 p-2 flex justify-between">
                 <h1 class="font-bold  text-3xl text-white px-2 py-4 ">Publier un Jobs</h1>
+                   @if(session('message'))
+                <div class="success bg-green-800 py-2 px-4 text-center  w-1/4 rounded-2xl">
+                 
+    <h6 class="font-bold text-gray-700">
+        {{ session('message') }}
+    </h6>
+
+                </div>
+                @endif
             </div>
 
             <div class="my-6">
-                <form class="mx-4" action='addJob' method="post">
+                <form class="mx-4" action='/addJob' method="post">
  @csrf
 
     <div class="border-b border-gray-900/10 pb-12">
@@ -128,41 +141,7 @@
       <h2 class="text-base font-semibold leading-7 text-gray-900">Notifications</h2>
       <p class="mt-1 text-sm leading-6 text-gray-600">We'll always let you know about important changes, but you pick what else you want to hear about.</p>
 
-      <div class="mt-10 space-y-10">
-        <fieldset>
-          
-          <div class="mt-6 space-y-6">
-            <div class="relative flex gap-x-3">
-              <div class="flex h-6 items-center">
-                <input id="comments" name="comments" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-              </div>
-              <div class="text-sm leading-6">
-                <label for="comments" class="font-medium text-gray-900">Comments</label>
-                <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
-              </div>
-            </div>
-            <div class="relative flex gap-x-3">
-              <div class="flex h-6 items-center">
-                <input id="candidates" name="candidates" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-              </div>
-              <div class="text-sm leading-6">
-                <label for="candidates" class="font-medium text-gray-900">Candidates</label>
-                <p class="text-gray-500">Get notified when a candidate applies for a job.</p>
-              </div>
-            </div>
-            <div class="relative flex gap-x-3">
-              <div class="flex h-6 items-center">
-                <input id="offers" name="offers" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-              </div>
-              <div class="text-sm leading-6">
-                <label for="offers" class="font-medium text-gray-900">Offers</label>
-                <p class="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-        
-      </div>
+     
     </div>
   </div>
 

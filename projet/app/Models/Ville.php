@@ -12,4 +12,9 @@ class Ville extends Model
     protected $fillable = [
         'ville',
     ];
+
+    public function Users()
+    {
+        return $this->HasMany(User::class);
+    }
 }

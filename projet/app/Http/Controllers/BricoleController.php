@@ -2,18 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\bricoleDTO;
 use App\Models\Bricole;
+use App\Models\Profession;
+use Illuminate\Support\Carbon;
 use App\Http\Requests\StoreBricoleRequest;
 use App\Http\Requests\UpdateBricoleRequest;
+use App\Models\Offre;
+use App\Repositories\BricoleRepositoryInterface;
 
 class BricoleController extends Controller
 {
+
+    public function __construct(public BricoleRepositoryInterface $repository)
+    {
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+       $bricoles = $this->repository->index();
+        
+        return view(
+            'Client.history',
+            [
+                'bricoles' => $bricoles
+            ]
+        );
+    }
+    public function addform()
+    {
+        $professions = Profession::All();
+        return view('Client.postJob', [
+            "professions" => $professions,
+
+        ]);
     }
 
     /**
@@ -29,7 +53,9 @@ class BricoleController extends Controller
      */
     public function store(StoreBricoleRequest $request)
     {
-        //
+        $bricoleDTO = bricoleDTO::fromRequest($request);
+        $bricole = $this->repository->store($bricoleDTO);
+     
     }
 
     /**
@@ -37,7 +63,7 @@ class BricoleController extends Controller
      */
     public function show(Bricole $bricole)
     {
-        //
+        return view('Client.bricole');
     }
 
     /**

@@ -1,16 +1,15 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
-use Illuminate\Support\Facades\Route;
-
 use  App\Models\User;
 use  App\Models\Ville;
+
 use  App\Models\Profession;
-use App\Http\Controllers\ClientController;   
-
-
-
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\BricoleController;
+use App\Http\Controllers\Auth\AuthController;
 
 Route::get('/', function () {
 
@@ -49,6 +48,28 @@ Route::get('/login', function () {
     return view('Auth.login');
 })->name('Auth.login');
 
+Route::get('/register', function () {
+
+    return view('Auth.register');
+})->name('Auth.register');
+
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/logout', [AuthController::class, 'logout']);
+
+
+
+
+
 
 Route::get('/profilePersonel', [ClientController::class, 'index'])->name('Client.profilePersonel');
+Route::get('/editProfile', [ClientController::class, 'editProfile'])->name('Client.editProfile');
+// 
+
+Route::get('/addJob', [BricoleController::class, 'addform'])->name('Client.addJob');
+Route::post('/addJob', [BricoleController::class, 'store']);
+
+Route::get('/history', [BricoleController::class, 'index']);
+Route::put('/editProfile/{user}', [UserController::class, 'update'])->name('Client.editProfile');
+
+Route::get('/bricole/{bricole}', [BricoleController::class, 'show']);

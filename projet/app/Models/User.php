@@ -21,11 +21,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'prenom',
-        'nom' ,
+        'nom',
         'sexe',
         'adresse',
         'tel',
-        'role' ,
+        'role',
         'email',
         'password',
         'ville_id',
@@ -38,6 +38,11 @@ class User extends Authenticatable
                 'source' => 'email',
             ]
         ];
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
     /**
      * The attributes that should be hidden for serialization.
@@ -60,5 +65,19 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function clients()
+    {
+        return $this->HasMany(Client::class);
+    }
+    public function freelancers()
+    {
+        return $this->HasMany(Freelancer::class);
+    }
+
+    public function Ville()
+    {
+        return $this->belongsTo(Ville::class);
     }
 }

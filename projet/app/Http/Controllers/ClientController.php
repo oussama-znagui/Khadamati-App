@@ -12,8 +12,7 @@ class ClientController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-;
+    {;
         return view('Client.profilePersonel');
     }
 
@@ -44,6 +43,11 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
+    public function editProfile()
+    {
+        return view('Client.editProfile');
+    }
     public function edit(Client $client)
     {
         //

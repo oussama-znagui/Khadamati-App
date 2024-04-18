@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBricoleRequest extends FormRequest
+class RegesterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return True;
     }
 
     /**
@@ -22,14 +22,16 @@ class StoreBricoleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titre' => 'required',
-            'priorite' => 'required',
-            'budget'  => 'required',
-            'nde'  => 'required',
-            'profession_id'  => 'required',
-            'description'  => 'required',
-            'images'  => 'required',
-            
+            'prenom' => 'required',
+            'nom' => 'required',
+            'sexe' => 'required',
+            'adresse' => 'required',
+            'tel' => 'required',
+            'role' => '',
+            'email' => 'required',
+            'password' => 'required',
+            'cpassword' => 'required',
+            'ville_id' => 'required',
         ];
     }
 }

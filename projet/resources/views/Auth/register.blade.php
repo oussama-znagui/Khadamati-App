@@ -1,6 +1,6 @@
 <x-app>
-    <div class="flex h-screen">
-  <!-- Left Pane -->
+    <div class="flex h-auto ">
+
   <div class="hidden lg:flex items-center justify-center flex-1 bg-white text-black">
     <div class="max-w-md text-center">
       <svg xmlns="http://www.w3.org/2000/svg" width="524.67004" height="531.39694" class="w-full" alt="https://undraw.co/illustrations" title="https://undraw.co/illustrations" viewBox="0 0 524.67004 531.39694" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -73,10 +73,10 @@
       </svg>
     </div>
   </div>
-  <!-- Right Pane -->
+  
   <div class="w-full bg-gray-100 lg:w-1/2 flex items-center justify-center">
-    <div class="max-w-md w-full p-6">
-      <h1 class="text-3xl font-semibold mb-6 text-black text-center">Sign Up</h1>
+    <div class="w-2/4 w-full p-6">
+      <h1 class="text-3xl font-semibold mb-6 text-black text-center">Creez votre compte</h1>
       <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">Join to Our Community with all time access and free </h1>
       <div class="mt-4 flex flex-col lg:flex-row items-center justify-between">
         <div class="w-full lg:w-1/2 mb-2 lg:mb-0">
@@ -98,27 +98,99 @@
       <div class="mt-4 text-sm text-gray-600 text-center">
         <p>or with email</p>
       </div>
-      <form action="/login" method="POST" class="space-y-4">
+      <form action="/register" method="POST" class="space-y-4">
         @csrf
+      <div class="flex justify-center gap-x-4">
         
         <div>
+            <div class="w-2/5">
+          <label for="" class="block text-sm font-medium text-gray-700">Role</label>
+          <select type="text"  name="role" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+            <option value="Client">Client</option>
+            <option value="Freelancer">Freelancer</option>
+          </select>
+         
+        </div >
+        
+       </div>
+      </div>
+        
+       <div class="flex gap-x-2 w-full">
+         <div class="w-2/4">
+          <label for="" class="block text-sm font-medium text-gray-700">Nom</label>
+          <input type="text"  name="nom" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+         
+        </div >
+         <div class="w-2/4">
+          <label for="" class="block text-sm font-medium text-gray-700">Prenom</label>
+          <input type="text"  name="prenom" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+         
+        </div>
+       </div>
+         <div>
           <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
           <input type="text"  name="email" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
          
         </div>
-        <div>
-          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-          <input type="password"  name="password" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
-              @error('error')
-        {{ $message }}
-        @enderror
+                  <div class="flex gap-x-2 w-full">
+         <div class="w-2/5">
+          <label for="" class="block text-sm font-medium text-gray-700">Sexe</label>
+          <select type="text"  name="sexe" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+            <option value="Homme">Homme</option>
+            <option value="Femme">Femme</option>
+          </select>
+         
+        </div >
+         <div class="w-3/4">
+          <label for="" class="block text-sm font-medium text-gray-700">Telephone</label>
+          <input type="text"  name="tel" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+         
+        </div >
+         
+       </div>
+          <div class="flex gap-x-2 w-full">
+         <div class="w-3/4">
+          <label for="" class="block text-sm font-medium text-gray-700">Adresse</label>
+          <input type="text"  name="adresse" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+         
+        </div >
+         <div class="w-1/4">
+          <label for="" class="block text-sm font-medium text-gray-700">Ville</label>
+          <select  name="ville_id" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+            <option value="1">dd</option>
+          </select>
+         
         </div>
+       </div>
+            <div class="flex gap-x-2 w-full">
+         <div class="w-2/4">
+          <label for="" class="block text-sm font-medium text-gray-700">Mot de pass</label>
+          <input type="password"  name="password" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+         
+        </div >
+         <div class="w-2/4">
+          <label for="" class="block text-sm font-medium text-gray-700">Confirmez le Mot de pass</label>
+          <input type="password"  name="cpassword" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+           
+         
+         
+        </div>
+   
+       </div>
+        @if (session('passwordMessage'))
+    <p class="font-bold text-red-600">{{ session('passwordMessage') }}</p>
+@endif
+        
+         
+        
+        
+       
         <div>
-          <button type="submit" class="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300">Login</button>
+          <button type="submit" class="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300">Regester</button>
         </div>
       </form>
       <div class="mt-4 text-sm text-gray-600 text-center">
-        <p>Si vous n'avez pas encore créé votre compte <a href="/register" class="text-black hover:underline">Creer un compte</a>
+        <p>Si vous avez un compte <a href="/login" class="text-black hover:underline">Login</a>
         </p>
       </div>
     </div>

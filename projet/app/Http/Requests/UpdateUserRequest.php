@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBricoleRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +23,14 @@ class StoreBricoleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titre' => 'required',
-            'priorite' => 'required',
-            'budget'  => 'required',
-            'nde'  => 'required',
-            'profession_id'  => 'required',
-            'description'  => 'required',
-            'images'  => 'required',
-            
+            'prenom' => 'required',
+            'nom' => 'required',
+            'email' => 'required',
+            'tel' => 'required',
+            'role' => 'required',
+            'sexe' => 'required',
+            'ville_id' => 'required',
+            'adresse' => 'required',
         ];
     }
 }

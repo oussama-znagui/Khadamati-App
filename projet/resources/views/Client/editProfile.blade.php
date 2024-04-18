@@ -14,8 +14,12 @@
         <h1 class="font-bold text-xl md:text-2xl ">{{ Auth()->User()->prenom . " " .  Auth()->User()->nom}}</h1>
       </div>
        <div class="flex justify-center items-center gap-4">
-            <p class="hidden sm:block  text-gray-800 font-bold">depuis 25/01/2022</p>
-            <button type="button" class="opacity-80 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Logout</button>
+            <p class="hidden sm:block  text-gray-800 font-bold">depuis {{Auth()->User()->created_at }}</p>
+            <form action="/logout" method="post">
+            @csrf
+             <button type="submit" class="opacity-80 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Logout</button>
+            </form>
+           
 
         </div>
       
@@ -28,12 +32,12 @@
       
         
          <div class=" rounded-2xl bg-gray-200   ">
-            <div class="rounded-2xl bg-gradient-to-br from-teal-400 to-sky-700 p-2 flex justify-between items-center ">
+           <div class="rounded-2xl bg-gradient-to-br from-teal-400 to-sky-700 p-2 flex justify-between items-center ">
                 <h1 class="font-bold  text-3xl text-white px-2 py-4 ">Editez votre profile</h1>
                  @if(session('message'))
                 <div class="success bg-green-800 py-2 px-4 text-center  w-1/4 rounded-2xl">
                  
-    <h6 class="">
+    <h6 class="font-bold text-gray-700">
         {{ session('message') }}
     </h6>
 
@@ -78,13 +82,13 @@
         <div class="sm:col-span-2">
           <label  class="block text-sm font-medium leading-6 text-gray-900">Email</label>
           <div class="mt-2">
-            <input  name="email" type="email" value="{{ Auth()->User()->email}}"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input readonly  name="email" type="email" value="{{ Auth()->User()->email}}"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
           <div class="sm:col-span-2">
           <label class="block text-sm font-medium leading-6 text-gray-900">Telephone</label>
           <div class="mt-2">
-            <input type="text" name="tel" value="{{ Auth()->User()->tel}}"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input  type="text" name="tel" value="{{ Auth()->User()->tel}}"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
           <div class="sm:col-span-2">
@@ -99,16 +103,11 @@
 
         
 
-        <div class="sm:col-span-2">
-          <label  class="block text-sm font-medium leading-6 text-gray-900">Date de naissance</label>
-          <div class="mt-2">
-            <input  name="" type="date" value="25/01/2003"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          </div>
-        </div>
+        
         <div class="sm:col-span-2">
           <label  class="block text-sm font-medium leading-6 text-gray-900">sexe</label>
           <div class="mt-2">
-            <select name="" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <select name="sexe" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 <option value="{{ Auth()->User()->sexe}}">{{ Auth()->User()->sexe}}</option>
                
             </select>
@@ -118,7 +117,9 @@
         <div class="sm:col-span-2">
           <label class="block text-sm font-medium leading-6 text-gray-900">Ville</label>
           <div class="mt-2">
-            <input type="text" name="ville" value="{{Auth()->user()->ville->ville}}"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <select  name="ville_id"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <option value="{{Auth()->user()->ville->id}}">{{Auth()->user()->ville->ville}}</option>
+          </select>
           </div>
         </div>
         <div class="sm:col-span-2">

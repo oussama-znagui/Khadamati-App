@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('message');
             $table->decimal('prix');
             $table->boolean('confirmation')->default(0);
+            $table->foreignId('bricole_id')->constrained();
             $table->timestamps();
         });
     }
