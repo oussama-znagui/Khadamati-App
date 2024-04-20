@@ -3,22 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Offre;
-use App\Http\Requests\StoreOffreRequest;
-use App\Http\Requests\UpdateOffreRequest;
-use App\Repositories\OffreRepositoryInterface;
+use App\Models\Confirmation;
+use App\Http\Requests\StoreConfirmationRequest;
+use App\Http\Requests\UpdateConfirmationRequest;
 
-class OffreController extends Controller
+class ConfirmationController extends Controller
 {
-
-    public function __construct(public OffreRepositoryInterface $repository)
-    {
-    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('Client.confirmation',[
+            'offres' => Offre::where('confirmation',1)->get(),
+        ]);
     }
 
     /**
@@ -32,7 +30,7 @@ class OffreController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOffreRequest $request)
+    public function store(StoreConfirmationRequest $request)
     {
         //
     }
@@ -40,7 +38,7 @@ class OffreController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Offre $offre)
+    public function show(Confirmation $confirmation)
     {
         //
     }
@@ -48,7 +46,7 @@ class OffreController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Offre $offre)
+    public function edit(Confirmation $confirmation)
     {
         //
     }
@@ -56,18 +54,15 @@ class OffreController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update( Offre $offre)
+    public function update(UpdateConfirmationRequest $request, Confirmation $confirmation)
     {
-     
-        $this->repository->update($offre);
-        // return redirect('/items')->with('success', 'Item updated successfully');
-
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Offre $offre)
+    public function destroy(Confirmation $confirmation)
     {
         //
     }

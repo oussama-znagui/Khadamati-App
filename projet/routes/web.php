@@ -10,6 +10,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\BricoleController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ConfirmationController;
+use App\Http\Controllers\OffreController;
 
 Route::get('/', function () {
 
@@ -75,3 +77,6 @@ Route::get('/history', [BricoleController::class, 'index']);
 Route::put('/editProfile/{user}', [UserController::class, 'update'])->name('Client.editProfile');
 
 Route::get('/bricole/{bricole}', [BricoleController::class, 'show']);
+
+Route::put('/accepteOffre/{offre}', [OffreController::class, 'update']);
+Route::get('/confirmation', [ConfirmationController::class, 'index']);

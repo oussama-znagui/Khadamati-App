@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Notifications\Notification;
+
 
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     use Sluggable;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -79,5 +82,10 @@ class User extends Authenticatable
     public function Ville()
     {
         return $this->belongsTo(Ville::class);
+    }
+
+    public function routeNotificationForVonage(Notification $notification): string
+    {
+        return $this->tel;
     }
 }

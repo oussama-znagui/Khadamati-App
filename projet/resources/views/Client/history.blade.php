@@ -24,7 +24,11 @@
       </div>
    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
      
-      <h1 class="font-bold text-gray-700 text-2xl my-4">Historique des jobs</h1>
+    <div class="flex justify-between items-center">
+        <h1 class="font-bold text-gray-700 text-2xl my-4">Historique des jobs</h1>
+        <a href="/confirmation" class="px-4 py-3 font-bold bg-slate-800 text-gray-50 rounded-2xl ">Consulter les confirmations</a>
+
+    </div>
    
       <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 mb-4">
         
