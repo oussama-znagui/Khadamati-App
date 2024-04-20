@@ -45,4 +45,8 @@ class Bricole extends Model
     {
         return $this->belongsTo(Profession::class);
     }
+    public function offres()
+    {
+        return $this->HasMany(Offre::class);
+    }
 }

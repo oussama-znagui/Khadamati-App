@@ -157,7 +157,9 @@
          <div class="w-1/4">
           <label for="" class="block text-sm font-medium text-gray-700">Ville</label>
           <select  name="ville_id" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
-            <option value="1">dd</option>
+           @foreach($villes as $ville)
+           <option value="{{ $ville->id }}">{{ $ville->ville }}</option>
+           @endforeach
           </select>
          
         </div>

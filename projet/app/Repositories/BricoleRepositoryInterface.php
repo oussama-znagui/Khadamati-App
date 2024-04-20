@@ -12,4 +12,5 @@ interface BricoleRepositoryInterface
    public function store(bricoleDTO $data);
    public function index();
    public function show(Bricole $bricole);
+   public function getOffres (Bricole $bricole);
 }

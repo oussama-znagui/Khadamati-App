@@ -54,6 +54,11 @@ class BricoleRepository extends BaseRepository implements BricoleRepositoryInter
     {
         return Bricole::find($bricole->id);
     }
+    public function getOffres(Bricole $bricole){
+       $offres =  $bricole->load('offres');
+        return $offres->offres;
+
+    }
     public function store(bricoleDTO $data)
     {
 

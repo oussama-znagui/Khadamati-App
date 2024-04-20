@@ -50,7 +50,9 @@ Route::get('/login', function () {
 
 Route::get('/register', function () {
 
-    return view('Auth.register');
+    return view('Auth.register', [
+        'villes' => Ville::All(),
+    ]);
 })->name('Auth.register');
 
 Route::post('/login', [AuthController::class, 'login']);
