@@ -11,7 +11,11 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\BricoleController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ConfirmationController;
+use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\OffreController;
+use App\Http\Controllers\PdfController;
+use App\Http\Controllers\ReclamationController;
+use App\Http\Controllers\StripeController;
 
 Route::get('/', function () {
 
@@ -43,7 +47,7 @@ Route::get('/', function () {
     //     'profession' => "Plombier"
     // ]);
     return view('welcome');
-});
+})->name('/');
 
 Route::get('/login', function () {
 
@@ -80,3 +84,13 @@ Route::get('/bricole/{bricole}', [BricoleController::class, 'show']);
 
 Route::put('/accepteOffre/{offre}', [OffreController::class, 'update']);
 Route::get('/confirmation', [ConfirmationController::class, 'index']);
+
+Route::post('/session', [StripeController::class, 'session']);
+Route::get('/success/{offre_id}', [StripeController::class, 'success'])->name('success');
+
+Route::get('/freelancer', [FreelancerController::class, 'index']);
+
+Route::get('/facture', [PdfController::class, 'index']);
+Route::post('/gneratePdf/{offre}', [PdfController::class, 'pdf']);
+
+Route::post('/reclamation', [ReclamationController::class, 'store']);

@@ -38,7 +38,8 @@ class OffreRepository  implements OffreRepositoryInterface
 
         $client->setHttpClient($guzzleClient);
         $response = $client->sms()->send(
-            new \Vonage\SMS\Message\SMS("212669666205", 'Khadamati', 'A text message sent using the Nexmo SMS API')
+            new \Vonage\SMS\Message\SMS("212688025523
+", 'Khadamati', 'A text message sent using the Nexmo SMS API')
         );
 
         $message = $response->current();

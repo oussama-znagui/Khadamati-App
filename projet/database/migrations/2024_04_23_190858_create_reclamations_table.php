@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('offres', function (Blueprint $table) {
+        Schema::create('reclamations', function (Blueprint $table) {
             $table->id();
-            $table->text('message');
-            $table->decimal('prix');
-            $table->boolean('confirmation')->default(0);
-            
-            $table->foreignId('bricole_id')->constrained();
-            $table->foreignId('freelancer_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('offres');
+        Schema::dropIfExists('reclamations');
     }
 };

@@ -63,11 +63,11 @@ class BricoleController extends Controller
     public function show(Bricole $bricole)
     {
         $offres = $this->repository->getOffres($bricole);
-       
         $bricole = $this->repository->show($bricole);
         return view('Client.bricole', [
             'bricole' => $bricole,
             'offres' => $offres,
+            'offreConfirme' => $this->repository->OffreConfirme($bricole),
         ]);
     }
 

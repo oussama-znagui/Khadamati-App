@@ -49,4 +49,9 @@ class Bricole extends Model
     {
         return $this->HasMany(Offre::class);
     }
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
 }

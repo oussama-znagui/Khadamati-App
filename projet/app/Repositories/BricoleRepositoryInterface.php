@@ -13,4 +13,5 @@ interface BricoleRepositoryInterface
    public function index();
    public function show(Bricole $bricole);
    public function getOffres (Bricole $bricole);
+   public function OffreConfirme(Bricole $bricole);
 }

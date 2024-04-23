@@ -83,8 +83,12 @@
 
     <div class="my-10 p-5">
         <h1 class="text-5xl font-bold text-slate-700 text-center mb-3  ">Offres reçues</h1>
+          @if ($offreConfirme)
+        <h1 class="text-center font-bold text-red-500 text-2xl mb-4">Vous avez deja accepter une Offre. <br> Consulter la section offres Comfirmées</h1>
+    @endif
         
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  
     @foreach($offres as $offre)
     <div class=" bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
             <div class="border-b px-4 pb-6 ">
@@ -115,9 +119,12 @@
                     <div></div>
                    
 
+@if (!$offreConfirme)
 <button data-modal-target="popup-modal{{ $offre->id }}" data-modal-toggle="popup-modal{{ $offre->id }}" class="w-2/4 rounded-full bg-blue-600 dark:bg-blue-800 text-white dark:text-white  font-bold hover:bg-blue-800 dark:hover:bg-blue-900  px-4  py-2" type="button">
 Accepter
 </button>
+    
+@endif
 
 <div id="popup-modal{{ $offre->id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">

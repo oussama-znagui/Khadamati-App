@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Freelancer;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreFreelancerRequest;
 use App\Http\Requests\UpdateFreelancerRequest;
 
@@ -13,7 +14,10 @@ class FreelancerController extends Controller
      */
     public function index()
     {
-        //
+        $freelancer = Freelancer::All();
+        return view('Client.freelancers',[
+            'freelancers' => $freelancer,
+        ]);
     }
 
     /**
