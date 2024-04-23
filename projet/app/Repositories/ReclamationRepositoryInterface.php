@@ -5,5 +5,5 @@ namespace App\Repositories;
 interface ReclamationRepositoryInterface
 {
    // Extend with your methods
-   public function store()
+   public function store();
 }

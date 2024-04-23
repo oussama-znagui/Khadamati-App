@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('reclamations', function (Blueprint $table) {
             $table->id();
+            $table->string('titre');
+            $table->text('description');
+            $table->foreignId('offre_id')->constrained();
             $table->timestamps();
         });
     }
