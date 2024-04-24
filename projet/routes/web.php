@@ -93,4 +93,5 @@ Route::get('/freelancer', [FreelancerController::class, 'index']);
 Route::get('/facture', [PdfController::class, 'index']);
 Route::post('/gneratePdf/{offre}', [PdfController::class, 'pdf']);
 
-Route::post('/reclamation', [ReclamationController::class, 'store']);
+Route::post('/reclamation/{offre}', [ReclamationController::class, 'store']);
+Route::get('/reclamation', [ReclamationController::class, 'index']);

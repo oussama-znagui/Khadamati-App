@@ -17,4 +17,8 @@ class Offre extends Model
     {
         return $this->belongsTo(Freelancer::class);
     }
+    public function reclamation()
+    {
+        return $this->hasOne(Reclamation::class);
+    }
 }
