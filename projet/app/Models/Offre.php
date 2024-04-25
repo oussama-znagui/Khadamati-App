@@ -21,4 +21,8 @@ class Offre extends Model
     {
         return $this->hasOne(Reclamation::class);
     }
+    public function review()
+    {
+        return $this->hasOne(Review::class);
+    }
 }

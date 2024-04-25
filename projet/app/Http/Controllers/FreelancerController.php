@@ -19,6 +19,10 @@ class FreelancerController extends Controller
             'freelancers' => $freelancer,
         ]);
     }
+    public function index1()
+    {
+        return view('Freelancer.profilePersonel');
+    }
 
     /**
      * Show the form for creating a new resource.

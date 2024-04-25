@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Offre;
 use App\DTO\bricoleDTO;
 use App\Models\Bricole;
 use App\Models\Profession;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreBricoleRequest;
 use App\Http\Requests\UpdateBricoleRequest;
-use App\Models\Offre;
 use App\Repositories\BricoleRepositoryInterface;
 
 class BricoleController extends Controller
@@ -31,6 +32,26 @@ class BricoleController extends Controller
             ]
         );
     }
+
+    public function bricole(){
+        $bricoles = Bricole::All();
+        $data = array();
+      
+        foreach ($bricoles as $bricole) {
+            if ($bricole->client->user->ville_id == Auth::user()->freelancers()->first()->user->ville_id){
+                array_push($data, $bricole);
+
+            }
+                
+         
+        }
+        return view('Freelancer.bricolePubliee', [
+            'bricoles' => $data,
+        ]);
+
+    }
+
+
     public function addform()
     {
         $professions = Profession::All();

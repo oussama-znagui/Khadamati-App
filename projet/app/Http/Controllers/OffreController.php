@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Offre;
 use App\Http\Requests\StoreOffreRequest;
 use App\Http\Requests\UpdateOffreRequest;
+use App\Models\Bricole;
 use App\Repositories\OffreRepositoryInterface;
 
 class OffreController extends Controller
@@ -18,7 +19,6 @@ class OffreController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**

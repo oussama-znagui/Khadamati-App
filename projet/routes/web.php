@@ -15,6 +15,7 @@ use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\OffreController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ReclamationController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StripeController;
 
 Route::get('/', function () {
@@ -95,3 +96,13 @@ Route::post('/gneratePdf/{offre}', [PdfController::class, 'pdf']);
 
 Route::post('/reclamation/{offre}', [ReclamationController::class, 'store']);
 Route::get('/reclamation', [ReclamationController::class, 'index']);
+
+Route::post('/review/{offre}', [ReviewController::class, 'store']);
+
+Route::put('/updateReview/{review}', [ReviewController::class, 'update']);
+
+
+
+Route::get('/profilePersonel-freelancer', [FreelancerController::class, 'index1'])->name('Freelancer.profilePersonel');
+
+Route::get('/bricolePubliee', [BricoleController::class, 'bricole']);

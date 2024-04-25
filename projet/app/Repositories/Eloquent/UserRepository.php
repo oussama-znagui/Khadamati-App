@@ -41,7 +41,7 @@ class UserRepository implements UserRepositoryInterface
 
                 return abort(redirect()->route('Client.profilePersonel'));
             } else {
-                dd('Freelancer');
+                return abort(redirect()->route('Freelancer.profilePersonel'));
             };
         };
 

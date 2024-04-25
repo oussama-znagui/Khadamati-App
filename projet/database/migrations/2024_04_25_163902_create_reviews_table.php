@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('commentaire');
             $table->integer('note');
-            $table->foreignId('offre_id')->constrained();k 
+            $table->foreignId('offre_id')->constrained(); 
             $table->timestamps();
         });
     }
