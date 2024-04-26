@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Offre extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'message',
+        'prix',
+        'bricole_id',
+        'freelancer_id'
+    ];
 
     public function bricole()
     {

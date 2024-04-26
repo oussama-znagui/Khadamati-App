@@ -2,8 +2,16 @@
  
 <main>
           
+@if (Auth()->User()->role == 'Client')
 <x-clientBar>
 </x-clientBar>
+    
+@else
+<x-freelancerBar>
+</x-freelancerBar>
+    
+@endif
+
 
 <div class="p-4 sm:ml-32">
     <div class="flex justify-between items-center mb-4">
@@ -94,7 +102,8 @@ Envoyer une Offre
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5" method="POST" action="/addOffre/{{ $bricole->id }}">
+            <form class="p-4 md:p-5" method="POST" action="{{ route('offre.store', $bricole->slug) }}">
+                @csrf
                 <div class="grid gap-4 mb-4 grid-cols-2">
                   
                     <div class="col-span-2 sm:col-span-1">

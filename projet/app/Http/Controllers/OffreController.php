@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\offreDTO;
 use App\Models\Offre;
 use App\Http\Requests\StoreOffreRequest;
 use App\Http\Requests\UpdateOffreRequest;
@@ -34,8 +35,11 @@ class OffreController extends Controller
      */
     public function store(StoreOffreRequest $request,Bricole $bricole)
     {
-       
+        $offreDTO = offreDTO::fromRequest($request);
+        $this->repository->store($offreDTO, $bricole);
+        return redirect('/offresEnvoyees')->with('succes', 'Ofrre envoyer avec succes');
     }
+
 
     /**
      * Display the specified resource.

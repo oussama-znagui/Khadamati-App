@@ -2,8 +2,11 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Models\Offre;
 use App\Models\User;
+use App\DTO\offreDTO;
+use App\Models\Offre;
+use App\Models\Bricole;
+use Illuminate\Support\Facades\Auth;
 use App\Repositories\OffreRepositoryInterface;
 use Illuminate\Notifications\Messages\VonageMessage;
 use TimWassenburg\RepositoryGenerator\Repository\BaseRepository;
@@ -23,6 +26,25 @@ class OffreRepository  implements OffreRepositoryInterface
     // {
     //     parent::__construct($model);
     // }
+
+
+    public function store(offreDTO $offreDTO,Bricole $bricole){
+        $data = $this->getArr($offreDTO);
+        $data += [
+            'bricole_id' => $bricole->id,
+            'freelancer_id' => Auth::user()->freelancers()->first()->id,
+        ];
+
+        Offre::create($data);
+        return true;
+    }
+
+    private function getArr(offreDTO $offreDTO){
+        return [
+            'message' => $offreDTO->message,
+            'prix' => $offreDTO->prix,
+        ];
+    }
 
     public function update(Offre $offre)
     {
