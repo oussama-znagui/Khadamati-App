@@ -2,8 +2,8 @@
  
 <main>
           
-<x-clientBar>
-</x-clientBar>
+<x-freelancerBar>
+</x-freelancerBar>
 
 <div class="p-4 sm:ml-32">
     <div class="flex justify-between items-center mb-4">
@@ -33,7 +33,76 @@
       <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 mb-4">
         
         @foreach ($bricoles as $bricole)
-        {{ $bricole->titre }}
+        <div class="rounded border-2 border-slate-400 border-solid overflow-hidden shadow-lg flex flex-col">
+      <a href=""></a>
+      <div class="relative"><a href="/bricole/{{ $bricole->slug }}">
+          <img class="w-full"
+            src="./assets/img/fuite.jpg"
+            alt="Sunset in the mountains">
+          <div
+            class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
+          </div>
+        </a>
+        <a href="#!">
+      
+            @if ($bricole->offreConfirme)
+            <div
+            class="text-xs absolute top-0 right-0 bg-green-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                <p> résolu</p>
+                </div>
+            @else
+                <div
+            class="text-xs absolute top-0 right-0 bg-yellow-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                <p> En cours</p>
+                </div>
+            @endif
+           
+          
+        </a>
+      </div>
+      <div class="px-6 py-4 mb-auto">
+        <p class="text-bold text-gray-500">{{ $bricole->priorite }}</p>
+        <a href="#"
+          class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">{{ $bricole->titre }}</a>
+        <div>
+            <div class=" flex justify-center items-center gap-2">
+<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 10h9.231M6 14h9.231M18 5.086A5.95 5.95 0 0 0 14.615 4c-3.738 0-6.769 3.582-6.769 8s3.031 8 6.769 8A5.94 5.94 0 0 0 18 18.916"/>
+</svg>
+<p>{{ $bricole->budget }} DHS</p>
+
+            </div>
+             <div class="flex justify-center items-center gap-2">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+<p>{{ $bricole->nde }} Jours estimé</p>
+                
+            </div>
+             <div>
+                
+            </div>
+        </div>
+      </div>
+      <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
+        <span href="#" class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+          <svg height="13px" width="13px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+            style="enable-background:new 0 0 512 512;" xml:space="preserve">
+            <g>
+              <g>
+                <path
+                  d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256 c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128 c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z">
+                </path>
+              </g>
+            </g>
+          </svg>
+          <span class="ml-1">   {{ $bricole->timeAgo }} </span>
+        </span>
+
+        
+      </div>
+    </div>
 
        @endforeach
       </div>

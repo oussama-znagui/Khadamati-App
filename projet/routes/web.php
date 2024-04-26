@@ -106,3 +106,5 @@ Route::put('/updateReview/{review}', [ReviewController::class, 'update']);
 Route::get('/profilePersonel-freelancer', [FreelancerController::class, 'index1'])->name('Freelancer.profilePersonel');
 
 Route::get('/bricolePubliee', [BricoleController::class, 'bricole']);
+
+Route::post('/addOffre/{bricole}', [OffreController::class, 'store']);

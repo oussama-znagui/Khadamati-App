@@ -4,8 +4,15 @@
  
 <main>
     
+@if (Auth()->User()->role == 'Client')
 <x-clientBar>
 </x-clientBar>
+    
+@else
+<x-freelancerBar>
+</x-freelancerBar>
+    
+@endif
 
 <div class="p-4 sm:ml-32">
     <div class="flex justify-between items-center mb-4">

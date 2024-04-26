@@ -34,17 +34,41 @@ class BricoleController extends Controller
     }
 
     public function bricole(){
-        $bricoles = Bricole::All();
-        $data = array();
-      
+        $data1 = array();
+        $bricoles = Bricole::with('offres')->get();
         foreach ($bricoles as $bricole) {
-            if ($bricole->client->user->ville_id == Auth::user()->freelancers()->first()->user->ville_id){
+
+        
+            if($bricole->offres){
+                foreach ($bricole->offres as $offre) {
+                    $offreConfirme = false;
+                    if($offre->confirmation == 1){
+                        $offreConfirme = true;
+                    }
+                }
+                if($offreConfirme == false){
+                    array_push($data1, $bricole);
+                }
+            }else{
+                array_push($data1, $bricole);
+            }
+        }
+
+        $data = array();
+       
+      
+        foreach ($data1 as $bricole) {
+          
+            if ($bricole->client->user->ville_id == Auth::user()->freelancers()->first()->user->ville_id && $bricole->profession_id == Auth::user()->freelancers()->first()->profession_id  ){
+                $timeAgo = $bricole->created_at->diffForHumans();
+                $bricole->timeAgo = $timeAgo;
                 array_push($data, $bricole);
 
             }
                 
          
         }
+      
         return view('Freelancer.bricolePubliee', [
             'bricoles' => $data,
         ]);

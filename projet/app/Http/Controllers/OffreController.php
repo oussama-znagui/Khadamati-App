@@ -32,9 +32,9 @@ class OffreController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOffreRequest $request)
+    public function store(StoreOffreRequest $request,Bricole $bricole)
     {
-        //
+       
     }
 
     /**
