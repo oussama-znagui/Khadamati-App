@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Offre;
+use App\Models\Freelancer;
 use App\Models\Confirmation;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreConfirmationRequest;
 use App\Http\Requests\UpdateConfirmationRequest;
 
@@ -17,6 +19,13 @@ class ConfirmationController extends Controller
         return view('Client.confirmation',[
             'offres' => Offre::where('confirmation',1)->get(),
         ]);
+    }
+
+    public function indexFreelancer(){
+        return view('Freelancer.confirmation', [
+            'offres' => Offre::where('confirmation', 1)->where('freelancer_id', Auth::user()->freelancers()->first()->id)->get(),
+        ]);
+
     }
 
     /**

@@ -26,7 +26,7 @@
      
     <div class="flex justify-between items-center">
         <h1 class="font-bold text-gray-700 text-2xl my-4">Bricole publiee</h1>
-        <a href="/confirmation" class="px-4 py-3 font-bold bg-slate-800 text-gray-50 rounded-2xl ">Consulter les confirmations</a>
+        <a href="/confirmation-freelancer" class="px-4 py-3 font-bold bg-slate-800 text-gray-50 rounded-2xl ">Consulter les confirmations</a>
 
     </div>
    
