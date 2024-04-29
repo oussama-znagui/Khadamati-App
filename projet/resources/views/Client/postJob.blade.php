@@ -44,7 +44,7 @@
             </div>
 
             <div class="my-6">
-                <form class="mx-4" action='/addJob' method="post">
+                <form class="mx-4" action='/addJob' method="post" enctype="multipart/form-data">
  @csrf
 
     <div class="border-b border-gray-900/10 pb-12">
@@ -114,7 +114,7 @@
               <div class="mt-4 flex text-sm leading-6 text-gray-600">
                 <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                   <span>Upload a file</span>
-                  <input id="file-upload" name="images[]" type="file" class="sr-only">
+                  <input id="file-upload" name="image" type="file" class="sr-only">
                 </label>
                 <p class="pl-1">or drag and drop</p>
               </div>

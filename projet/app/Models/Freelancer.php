@@ -10,6 +10,7 @@ class Freelancer extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'profession_id',
     ];
 
     public function offres()

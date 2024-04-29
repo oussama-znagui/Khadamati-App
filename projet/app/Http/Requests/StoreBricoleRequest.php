@@ -28,7 +28,7 @@ class StoreBricoleRequest extends FormRequest
             'nde'  => 'required',
             'profession_id'  => 'required',
             'description'  => 'required',
-            'images'  => 'required',
+            'image'  => 'required',
             
         ];
     }

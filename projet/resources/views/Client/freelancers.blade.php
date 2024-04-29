@@ -24,75 +24,29 @@
       </div>
    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 bg-gray-100">
      
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center mb-5">
         <h1 class="font-bold text-gray-700 text-2xl my-4">Historique des jobs</h1>
+        
+<form class="w-2/4 mx-auto">   
+    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+    <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+        </div>
+        <input type="search" id="search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
+        <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+    </div>
+</form>
+
         <a href="/confirmation" class="px-4 py-3 font-bold bg-slate-800 text-gray-50 rounded-2xl ">Consulter les confirmations</a>
 
     </div>
    
-      <div class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
+      <div id='freelancers' class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
         
-        @foreach($freelancers as $freelancer)
-      <div class="px-4 bg-white border-solid border-2 border-gray-600  relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
-  <div
-    class=" relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
-    <img
-      src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
-      alt="Tania Andrew"
-      class="relative inline-block h-[58px] w-[58px] !rounded-full  object-cover object-center" />
-    <div class="flex w-full flex-col gap-0.5">
-      <div class="flex items-center justify-between">
-        <h5
-          class="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-          {{ $freelancer->user->prenom . ' ' . $freelancer->user->nom}}
-        </h5>
-        <div class="flex items-center gap-0 5">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="w-5 h-5 text-yellow-700">
-            <path fill-rule="evenodd"
-              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-              clip-rule="evenodd"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="w-5 h-5 text-yellow-700">
-            <path fill-rule="evenodd"
-              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-              clip-rule="evenodd"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="w-5 h-5 text-yellow-700">
-            <path fill-rule="evenodd"
-              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-              clip-rule="evenodd"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="w-5 h-5 text-yellow-700">
-            <path fill-rule="evenodd"
-              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-              clip-rule="evenodd"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="w-5 h-5 text-yellow-700">
-            <path fill-rule="evenodd"
-              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </div>
-      </div>
-      <p class="block font-sans text-base antialiased font-light leading-relaxed text-blue-gray-900">
-        {{ $freelancer->profession->profession }} @Khadamati
-      </p>
-    </div>
-  </div>
-  <div class="p-0 mb-6">
-    <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-      "I found solution to all my design needs from Creative Tim. I use
-      them as a freelancer in my hobby projects for fun! And its really
-      affordable, very humble guys !!!"
-    </p>
-  </div>
-</div>
-        @endforeach
+    
       </div>
        
 
@@ -102,5 +56,6 @@
 </div>
 
 </main>
+<script src="./assets/js/ajax.js"></script>
 </x-app>
 

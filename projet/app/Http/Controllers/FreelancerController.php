@@ -6,6 +6,8 @@ use App\Models\Freelancer;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreFreelancerRequest;
 use App\Http\Requests\UpdateFreelancerRequest;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request as HttpRequest;
 
 class FreelancerController extends Controller
 {
@@ -15,10 +17,34 @@ class FreelancerController extends Controller
     public function index()
     {
         $freelancer = Freelancer::All();
-        return view('Client.freelancers',[
+        return view('Client.freelancers', [
             'freelancers' => $freelancer,
         ]);
     }
+
+
+    public function search(HttpRequest $request)
+    {
+
+        $search = $request->input('search');
+        if($search == ''){
+            $freelancers = Freelancer::with('user', 'profession')->get();
+    
+        }else{
+            $freelancers = Freelancer::with('user', 'profession')->whereHas('user', function ($q) use ($search) {
+                $q->where('prenom', 'like', '%' . $search . '%')->orWhere('nom', 'like', '%' . $search . '%');
+            })->get();
+
+        }
+     
+
+        return response()->json(["freelancers" => $freelancers]);
+    }
+
+
+
+
+
     public function index1()
     {
         return view('Freelancer.profilePersonel');

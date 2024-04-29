@@ -89,6 +89,7 @@ Route::post('/session', [StripeController::class, 'session']);
 Route::get('/success/{offre_id}', [StripeController::class, 'success'])->name('success');
 
 Route::get('/freelancer', [FreelancerController::class, 'index']);
+Route::get('/search', [FreelancerController::class, 'search']);
 
 Route::get('/facture', [PdfController::class, 'index']);
 Route::post('/gneratePdf/{offre}', [PdfController::class, 'pdf']);
@@ -99,6 +100,8 @@ Route::get('/reclamation', [ReclamationController::class, 'index']);
 Route::post('/review/{offre}', [ReviewController::class, 'store']);
 
 Route::put('/updateReview/{review}', [ReviewController::class, 'update']);
+
+// Route::get('/favorie/{freelancer}',[])
 
 
 

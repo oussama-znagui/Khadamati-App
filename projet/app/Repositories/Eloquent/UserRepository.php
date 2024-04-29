@@ -78,7 +78,8 @@ class UserRepository implements UserRepositoryInterface
             return abort(redirect()->route('Client.profilePersonel'));
         } else {
             $freelancer = Freelancer::create([
-                'user_id' => $user->id
+                'user_id' => $user->id,
+                'profession_id' => 1,
             ]);
         }
         // dd($client);

@@ -15,7 +15,7 @@ readonly class bricoleDTO
         public  string $budget,
         public  string $priorite,
         public  string $profession_id,
-        public  array  $images,
+        public  Object  $image,
         public  string  $nde,
         public  string  $description,
 
@@ -31,7 +31,7 @@ readonly class bricoleDTO
             budget: $validatedData["budget"],
             priorite: $validatedData["priorite"],
             profession_id: $validatedData["profession_id"],
-            images: $validatedData["images"],
+            image: $validatedData["image"],
             nde: $validatedData["nde"],
             description: $validatedData["description"],
 
