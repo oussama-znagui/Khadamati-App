@@ -11,6 +11,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\BricoleController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ConfirmationController;
+use App\Http\Controllers\FavorieController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\OffreController;
 use App\Http\Controllers\PdfController;
@@ -101,7 +102,10 @@ Route::post('/review/{offre}', [ReviewController::class, 'store']);
 
 Route::put('/updateReview/{review}', [ReviewController::class, 'update']);
 
-// Route::get('/favorie/{freelancer}',[])
+
+Route::get('/favorie-Page', [FavorieController::class, 'index']);
+
+Route::get('/favorie/{freelancer}', [FavorieController::class, 'store']);
 
 
 
