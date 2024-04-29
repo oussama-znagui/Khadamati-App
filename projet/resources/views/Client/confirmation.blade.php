@@ -67,9 +67,9 @@
                 </div>
                 @endif
         
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
     @foreach($offres as $offre)
-    <div class=" bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+    <div class=" bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg ">
             <div class="border-b px-4 pb-6 ">
                 <div class="  flex justify-between items-center">
                     <div class="py-2 flex items-center gap-x-2">
@@ -303,6 +303,7 @@
             @endif
            
         </div>
+    </div>
      @endforeach    
 </div>
 

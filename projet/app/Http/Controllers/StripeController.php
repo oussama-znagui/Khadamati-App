@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Freelancer;
 use App\Models\Offre;
 use Illuminate\Http\Request;
 
@@ -50,7 +51,10 @@ class StripeController extends Controller
       
         $offre = Offre::find($id);
         $offre->payment = 1;
-        
+        $freelancer = Freelancer::find($offre->freelancer->id);
+        $freelancer->budget += $offre->prix;
+        $freelancer->save();
+
         $offre->save();
         return redirect('/confirmation')->with('payment', 'Le payment est bien effectuer');
         
