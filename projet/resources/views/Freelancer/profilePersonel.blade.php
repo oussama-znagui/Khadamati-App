@@ -28,48 +28,53 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
        
         <div class="flex items-center p-4 bg-white rounded">
-			<div class="flex flex-shrink-0 items-center justify-center bg-green-200 h-16 w-16 rounded">
-				<svg class="w-6 h-6 fill-current text-green-700"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-				  <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-				</svg>
+			<div class="flex flex-shrink-0 items-center justify-center bg-yellow-200 h-16 w-16 rounded">
+			<svg class="w-10 h-10 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 17-4-4-4 4m8-6-4-4-4 4"/>
+</svg>
+
 			</div>
 			<div class="flex-grow flex flex-col ml-4">
-				<span class="text-xl font-bold">$8,430</span>
+				<span class="text-3xl font-bold">13</span>
 				<div class="flex items-center justify-between">
-					<span class="text-gray-500">Revenue last 30 days</span>
-					<span class="text-green-500 text-sm font-semibold ml-2">+12.6%</span>
+					<span class="text-gray-500">Offres envoyees</span>
+					
 				</div>
 			</div>
 		</div>
 		
 		<!-- Tile 2 -->
 		<div class="flex items-center p-4 bg-white rounded">
-			<div class="flex flex-shrink-0 items-center justify-center bg-red-200 h-16 w-16 rounded">
-				<svg class="w-6 h-6 fill-current text-red-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-				  <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+			<div class="flex flex-shrink-0 items-center justify-center bg-green-200 h-16 w-16 rounded">
+				<svg class="w-10 h-10 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 7 4 4 4-4m-8 6 4 4 4-4"/>
+</svg>
+
 				</svg>
 			</div>
 			<div class="flex-grow flex flex-col ml-4">
 				<span class="text-xl font-bold">211</span>
 				<div class="flex items-center justify-between">
-					<span class="text-gray-500">Sales last 30 days</span>
-					<span class="text-red-500 text-sm font-semibold ml-2">-8.1%</span>
+					<span class="text-gray-500">Offres Confirmées</span>
+				
 				</div>
 			</div>
 		</div>
 		
 		<!-- Tile 3 -->
 		<div class="flex items-center p-4 bg-white rounded">
-			<div class="flex flex-shrink-0 items-center justify-center bg-green-200 h-16 w-16 rounded">
-				<svg class="w-6 h-6 fill-current text-green-700"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-				  <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+			<div class="flex flex-shrink-0 items-center justify-center bg-red-200 h-16 w-16 rounded">
+				<svg class="w-10 h-10 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v5a1 1 0 1 0 2 0V8Zm-1 7a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H12Z" clip-rule="evenodd"/>
+</svg>
+
 				</svg>
 			</div>
 			<div class="flex-grow flex flex-col ml-4">
 				<span class="text-xl font-bold">140</span>
 				<div class="flex items-center justify-between">
-					<span class="text-gray-500">Customers last 30 days</span>
-					<span class="text-green-500 text-sm font-semibold ml-2">+28.4%</span>
+					<span class="text-gray-500">Reclamations Recues </span>
+				
 				</div>
 			</div>
 		</div>
@@ -79,12 +84,9 @@
       
       
       <div class="grid grid-cols-2 gap-4">
-         <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-            <p class="text-2xl text-gray-400 dark:text-gray-500">
-               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-               </svg>
-            </p>
+         {{-- flex items-center justify-center --}}
+         <div class=" rounded bg-gray-50 h-28 p-2 dark:bg-gray-800">
+           <h1 class="font-bold text-gray-800">Dernier bricole publié dans votre ville</h1>
          </div>
          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
             <p class="text-2xl text-gray-400 dark:text-gray-500">
@@ -93,20 +95,8 @@
                </svg>
             </p>
          </div>
-         <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-            <p class="text-2xl text-gray-400 dark:text-gray-500">
-               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-               </svg>
-            </p>
-         </div>
-         <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-            <p class="text-2xl text-gray-400 dark:text-gray-500">
-               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-               </svg>
-            </p>
-         </div>
+       
+        
       </div>
    </div>
 </div>

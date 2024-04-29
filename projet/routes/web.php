@@ -109,3 +109,5 @@ Route::get('/bricolePubliee', [BricoleController::class, 'bricole']);
 Route::post('/addOffre/{bricole}', [OffreController::class, 'store'])->name('offre.store');
 
 Route::get('/confirmation-freelancer', [ConfirmationController::class, 'indexFreelancer']);
+
+Route::get('/profileUser/{user}', [UserController::class, 'show']);
