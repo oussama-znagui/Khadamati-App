@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Offre;
 use App\Models\Freelancer;
 use App\Models\Confirmation;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreConfirmationRequest;
 use App\Http\Requests\UpdateConfirmationRequest;
@@ -16,8 +17,17 @@ class ConfirmationController extends Controller
      */
     public function index()
     {
+        $offres = DB::table("offres")
+        ->join("bricoles", function ($join) {
+            $join->on("offres.bricole_id", "=", "bricoles.id");
+        })
+            ->where("offres.confirmation", "=", 1)
+            ->where("bricoles.client_id", "=",Auth::user()->clients()->first()->id)
+            ->get();
+
+       
         return view('Client.confirmation',[
-            'offres' => Offre::where('confirmation',1)->get(),
+            'offres' => $offres,
         ]);
     }
 
