@@ -17,9 +17,9 @@ class FavorieController extends Controller
     public function index()
     {
         $favories = Favorie::with('freelancer')->where('client_id', Auth::user()->clients->first()->id)->get();
-        return view('Client.favorie-page',[
+        return view('Client.favorie-page', [
             'favories' => $favories,
-        ])
+        ]);
     }
 
     /**
@@ -72,6 +72,7 @@ class FavorieController extends Controller
      */
     public function destroy(Favorie $favorie)
     {
-        //
+        $favorie->delete();
+        return redirect('favorie-Page')->with('message', 'freelancer supprimé du favorie avec succes');
     }
 }

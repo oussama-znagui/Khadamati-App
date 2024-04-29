@@ -104,6 +104,7 @@ Route::put('/updateReview/{review}', [ReviewController::class, 'update']);
 
 
 Route::get('/favorie-Page', [FavorieController::class, 'index']);
+Route::delete('/delete-favorie/{favorie}', [FavorieController::class, 'destroy']);
 
 Route::get('/favorie/{freelancer}', [FavorieController::class, 'store']);
 

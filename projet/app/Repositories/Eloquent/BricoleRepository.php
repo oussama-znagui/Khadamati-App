@@ -73,13 +73,19 @@ class BricoleRepository extends BaseRepository implements BricoleRepositoryInter
 
     public function store(bricoleDTO $data)
     {
-        dd(uniqid('img_'));
+        $fileName = pathinfo($data->image->getClientOriginalName(), PATHINFO_FILENAME);
+        $extension = pathinfo($data->image->getClientOriginalName(), PATHINFO_EXTENSION);
+        $fullFileName = $fileName . "-" . time() . '.' . $data->image->getClientOriginalExtension();
+      
+
+    
         $destinationPath = './assets/uploads/';
-        $myimage = $data->image->getClientOriginalName();m
-        $data->image->move(public_path($destinationPath), $myimage);
+       
+        $data->image->move(public_path($destinationPath), $fullFileName);
+        $insert  = $this->getArr($data) + ['image' => $fullFileName];
 
 
-        Bricole::create($this->getArr($data));
+        Bricole::create($insert);
         return abort(redirect('/addJob')->with('message', 'votre demande de service est publié'));
     }
     private function getArr(bricoleDTO $DTO): array
