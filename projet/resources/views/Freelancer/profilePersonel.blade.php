@@ -11,6 +11,12 @@
           <div class="w-16 h-16 bg-[url('/./assets/img/image.webp')] bg-cover	bg-no-repeat	bg-center	 rounded-full"></div>
         <h1 class="font-bold text-xl md:text-2xl ">{{ Auth()->User()->prenom . " " .  Auth()->User()->nom}}</h1>
       </div>
+      <div>
+         <h1 class="font-bold text-gray-600">Budget</h1>
+         <p class="font-black text-gray-900 text-4xl">
+            300 <span class="text-xl">DHS</span>
+         </p>
+      </div>
        <div class="flex justify-center items-center gap-4">
             <p class="hidden sm:block  text-gray-800 font-bold">depuis {{Auth()->User()->created_at }}</p>
             <form action="/logout" method="post">

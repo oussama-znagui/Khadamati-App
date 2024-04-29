@@ -14,8 +14,8 @@ class StripeController extends Controller
         $titre = $request->titre;
         $prix = (int)$request->prix;
 
-        $two0 = '00';
-        $total = $prix;
+       
+        $total = $prix*10;
 
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
         $session = \Stripe\Checkout\Session::create([
@@ -50,6 +50,7 @@ class StripeController extends Controller
       
         $offre = Offre::find($id);
         $offre->payment = 1;
+        
         $offre->save();
         return redirect('/confirmation')->with('payment', 'Le payment est bien effectuer');
         
