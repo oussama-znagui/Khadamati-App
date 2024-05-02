@@ -12,7 +12,6 @@ class Freelancer extends Model
         'user_id',
         'profession_id',
     ];
-
     public function offres()
     {
         return $this->HasMany(Offre::class);
@@ -24,5 +23,8 @@ class Freelancer extends Model
     public function profession()
     {
         return $this->belongsTo(Profession::class);
+    }
+    public function favories(){
+        return $this->hasMany(Favorie::class);
     }
 }

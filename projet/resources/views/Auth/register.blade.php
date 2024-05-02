@@ -86,10 +86,24 @@
         <div>
             <div class="">
           <label for="" class=" text-sm font-medium text-gray-700">Role</label>
-          <select type="text"  name="role" class="mt-1 p-2  border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+          <select type="text" id='role'  name="role" class="mt-1 p-2  border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
             <option value="Client">Client</option>
             <option value="Freelancer">Freelancer</option>
           </select>
+
+          <div id="profession" style="display:none">
+            <label for="" class=" text-sm font-medium text-gray-700">Profession</label>
+          <select type="text"  name="profession_id" class="mt-1 p-2  border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
+            @foreach ($professions as $profession)
+              <option value="{{ $profession->id }}">{{ $profession->profession }}</option>
+                
+            @endforeach
+          
+          
+          </select>
+          </div>
+          
+
          
         </div >
         
@@ -179,4 +193,21 @@
     </div>
   </div>
 </div>
+
+<script>
+var role = document.getElementById("role");
+var profession = document.getElementById("profession");
+
+if (role && profession) {
+    role.addEventListener("change", function() {
+        if (role.value === "Freelancer") {
+            profession.style.display = "block";
+        } else {
+            profession.style.display = "none";
+        }
+    });
+} else {
+    console.error("allo");
+}
+</script>
 </x-app>

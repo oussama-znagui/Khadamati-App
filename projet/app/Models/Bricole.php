@@ -20,6 +20,7 @@ class Bricole extends Model
         'nde',
         'description',
         'client_id',
+        'image',
     ];
 
 

@@ -32,6 +32,7 @@ class RegesterRequest extends FormRequest
             'password' => 'required',
             'cpassword' => 'required',
             'ville_id' => 'required',
+            'profession_id' => '',
         ];
     }
 }

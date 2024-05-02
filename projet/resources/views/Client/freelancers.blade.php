@@ -25,7 +25,7 @@
    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 bg-gray-100">
      
     <div class="flex justify-between items-center mb-5">
-        <h1 class="font-bold text-gray-700 text-2xl my-4">Historique des jobs</h1>
+        <h1 class="font-bold text-gray-700 text-2xl my-4">Freelancers</h1>
         
 <form class="w-2/4 mx-auto">   
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>

@@ -28,17 +28,25 @@ class FreelancerController extends Controller
 
         $search = $request->input('search');
         if($search == ''){
-            $freelancers = Freelancer::with('user', 'profession')->get();
+            $freelancers = Freelancer::with('user', 'profession','favories')->get();
+            // foreach($freelancers as $freelancer){
+            //     if($freelancer->favorie && $freelancer->favorie->client->id == Auth::user()->freelancers()->first()->id){
+            //        $freelancer->f = tru
+            //     }
+
+            // }
     
         }else{
-            $freelancers = Freelancer::with('user', 'profession')->whereHas('user', function ($q) use ($search) {
+            $freelancers = Freelancer::with('user', 'profession', 'favories')->whereHas('user', function ($q) use ($search) {
                 $q->where('prenom', 'like', '%' . $search . '%')->orWhere('nom', 'like', '%' . $search . '%');
             })->get();
 
         }
      
 
-        return response()->json(["freelancers" => $freelancers]);
+        return response()->json([
+            "freelancers" => $freelancers,
+        ]);
     }
 
 

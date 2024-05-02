@@ -11,9 +11,15 @@ function getData(searchQuery) {
     fetch(`/search?search=${searchQuery}`)
         .then((response) => response.json())
         .then((data) => {
+
             freelanc.innerHTML = "";
             data.freelancers.forEach((freelancer) => {
-                freelanc.innerHTML += `   <div class="px-4 bg-white border-solid border-2 border-gray-600  relative flex w-full  flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
+                if (freelancer.favoris) {
+                    
+                    main = document.getElementById('main');
+                    main.style.display('none');
+                }
+                    freelanc.innerHTML += `   <div id='main' style="display: block" class="px-4 bg-white border-solid border-2 border-gray-600  relative flex w-full  flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
         <div class="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80" alt="Tania Andrew" class="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center" />
             <div class="flex w-full flex-col gap-0.5">

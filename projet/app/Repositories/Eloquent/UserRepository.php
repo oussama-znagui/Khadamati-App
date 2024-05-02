@@ -39,9 +39,9 @@ class UserRepository implements UserRepositoryInterface
 
             if (Auth::User()->role == 'Client') {
 
-                return abort(redirect()->route('Client.profilePersonel'));
+                return abort(redirect('Client.editProfile'));
             } else {
-                return abort(redirect()->route('Freelancer.profilePersonel'));
+                return abort(redirect()->route('Client.editProfile'));
             };
         };
 
@@ -75,16 +75,18 @@ class UserRepository implements UserRepositoryInterface
 
             ]);
             auth()->login($user);
-            return abort(redirect()->route('Client.profilePersonel'));
+            return abort(redirect()->route('Client.editProfile'));
         } else {
             $freelancer = Freelancer::create([
                 'user_id' => $user->id,
                 'profession_id' => 1,
+                
             ]);
+            return abort(redirect()->route('Client.editProfile'));
         }
         // dd($client);
 
-        dd($regesterDTO);
+       
     }
 
     private function getArrRegister(regesterDTO $regesterDTO): array

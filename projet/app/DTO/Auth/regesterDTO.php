@@ -22,6 +22,7 @@ readonly class regesterDTO
        public string $password,
        public string $cpassword,
        public string $ville_id,
+    public string $profession_id
 
 
 
@@ -31,6 +32,24 @@ readonly class regesterDTO
     public static function fromRequest(RegesterRequest  $request)
     {
         $validatedData = $request->validated();
+        if($request->role == 'Freelancer'){
+            return new self(
+                prenom: $validatedData["prenom"],
+                nom: $validatedData["nom"],
+                sexe: $validatedData["sexe"],
+                adresse: $validatedData["adresse"],
+                tel: $validatedData["tel"],
+                role: $validatedData["role"],
+                email: $validatedData["email"],
+                password: $validatedData["password"],
+                cpassword: $validatedData["cpassword"],
+                ville_id: $validatedData["ville_id"],
+                profession_id: $validatedData["profession_id"],
+
+
+            );
+
+        }
         return new self(
             prenom: $validatedData["prenom"],
             nom: $validatedData["nom"],
